@@ -1,0 +1,29 @@
+.ember-power-select-trigger-multiple-input:disabled {
+  background: none;
+}
+
+.ember-power-select-complex-dropdown > .ember-power-select-options  {
+  max-height: none;
+  height: 400px;
+}
+
+
+.ember-basic-dropdown > div > .ember-power-select-status-icon {
+  transform: rotate(0);
+}
+
+.ember-basic-dropdown--opened > div > .ember-power-select-status-icon {
+  transform: rotate(180deg);
+}
+
+
+.panel-default {
+  border: 0;
+}
+
+.panel-body .title {
+  border-bottom: 2px solid #ddd;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}

@@ -1,0 +1,19 @@
+{{#each selected as |opt|}}
+  {{#unless opt.isHidden}}
+    <li class="ember-power-select-multiple-option">
+      {{#if selectedItemComponent}}
+        {{component selectedItemComponent selected=opt lastSearchedText=lastSearchedText}}
+      {{else}}
+        {{yield opt lastSearchedText}}
+      {{/if}}
+      {{#if opt.isDismissible}}
+        <span role="button" aria-label="remove element" class="ember-power-select-multiple-remove-btn"
+          onmousedown={{action select.actions.select (ember-power-select-build-selection opt selected multiple=true)}}>&times;
+        </span>
+      {{/if}}
+    </li>
+  {{/unless}}
+{{/each}}
+<input type="search" class="ember-power-select-trigger-multiple-input {{elementId}}-input"
+  disabled=disabled>
+<span class="ember-power-select-status-icon"></span>

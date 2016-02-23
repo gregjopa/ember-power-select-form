@@ -1,0 +1,75 @@
+{{#if (hasBlock "inverse")}}
+  {{#power-select-multiple
+      options=complexParams
+      selected=selected
+      onchange=onchange
+      onkeydown=onkeydown
+      onclose=onclose
+      disabled=disabled
+      placeholder=placeholder
+      searchEnabled=false
+      searchPlaceholder=searchPlaceholder
+      loadingMessage=loadingMessage
+      noMatchesMessage=noMatchesMessage
+      searchMessage=searchMessage
+      triggerComponent=triggerComponent
+      selectedItemComponent=selectedItemComponent
+      beforeOptionsComponent=beforeOptionsComponent
+      optionsComponent=optionsComponent
+      afterOptionsComponent=afterOptionsComponent
+      matcher=matcher
+      searchField=searchField
+      renderInPlace=true
+      search=search
+      allowClear=allowClear
+      verticalPosition=verticalPosition
+      closeOnSelect=closeOnSelect
+      opened=opened
+      tabindex=tabindex
+      dir=dir
+      class="ember-power-select-complex"
+      triggerClass=concatenatedTriggerClass
+      dropdownClass="ember-power-select-complex--dropdown"
+      extra=extra
+      as |option term|}}
+      {{yield option term}}
+    {{else}}
+      {{yield to="inverse"}}
+  {{/power-select-multiple}}
+{{else}}
+  {{#power-select-multiple
+      options=complexParams
+      selected=selected
+      onchange=onchange
+      onkeydown=onkeydown
+      onclose=onclose
+      disabled=disabled
+      placeholder=placeholder
+      searchEnabled=false
+      searchPlaceholder=searchPlaceholder
+      loadingMessage=loadingMessage
+      noMatchesMessage=noMatchesMessage
+      searchMessage=searchMessage
+      triggerComponent=triggerComponent
+      selectedItemComponent=selectedItemComponent
+      beforeOptionsComponent=beforeOptionsComponent
+      optionsComponent=optionsComponent
+      afterOptionsComponent=afterOptionsComponent
+      matcher=matcher
+      searchField=searchField
+      renderInPlace=true
+      search=search
+      allowClear=allowClear
+      verticalPosition=verticalPosition
+      closeOnSelect=closeOnSelect
+      opened=opened
+      tabindex=tabindex
+      dir=dir
+      class="ember-power-select-complex"
+      triggerClass=concatenatedTriggerClass
+      dropdownClass="ember-power-select-complex--dropdown"
+      extra=extra
+      as |option term|}}
+      {{yield option term}}
+  {{/power-select-multiple}}
+{{/if}}

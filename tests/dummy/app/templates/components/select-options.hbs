@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <h3 class="title">Parameters</h3>
+
+
+    <div class="form-group">
+      <label>{{formFields.startDate.label}}</label>
+      {{input value=formFields.startDate.value type="date" class="form-control" required=true}}
+    </div>
+
+
+    <div class="form-group">
+      <label>{{formFields.endDate.label}}</label>
+      {{input value=formFields.endDate.value type="date" class="form-control" required=true}}
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Regions</label>
+      {{#power-select-multiple
+        options=allRegions
+        selected=selectedRegions
+        placeholder="Select regions"
+        renderInPlace=true
+        onchange=(action (mut selectedRegions))
+        as |region|
+      }}
+        {{region.name}}
+      {{/power-select-multiple}}
+    </div>
+
+
+    <button class="btn btn-primary" {{action "transformParams"}}>Submit</button>
+    <button class="btn btn-default" {{action "closeDropdown"}}>Close</button>
+
+  </div>
+</div>
