@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-power-select-complex'
+  name: 'ember-power-select-form'
 };

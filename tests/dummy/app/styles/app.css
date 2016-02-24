@@ -2,7 +2,7 @@
   background: none;
 }
 
-.ember-power-select-complex-dropdown > .ember-power-select-options  {
+.ember-power-select-form-dropdown > .ember-power-select-options  {
   max-height: none;
   height: 400px;
 }

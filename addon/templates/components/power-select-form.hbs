@@ -1,6 +1,6 @@
 {{#if (hasBlock "inverse")}}
   {{#power-select-multiple
-      options=complexParams
+      options=options
       selected=selected
       onchange=onchange
       onkeydown=onkeydown
@@ -27,9 +27,9 @@
       opened=opened
       tabindex=tabindex
       dir=dir
-      class="ember-power-select-complex"
+      class="ember-power-select-form"
       triggerClass=concatenatedTriggerClass
-      dropdownClass="ember-power-select-complex--dropdown"
+      dropdownClass="ember-power-select-form--dropdown"
       extra=extra
       as |option term|}}
       {{yield option term}}
@@ -38,7 +38,7 @@
   {{/power-select-multiple}}
 {{else}}
   {{#power-select-multiple
-      options=complexParams
+      options=options
       selected=selected
       onchange=onchange
       onkeydown=onkeydown
@@ -65,9 +65,9 @@
       opened=opened
       tabindex=tabindex
       dir=dir
-      class="ember-power-select-complex"
+      class="ember-power-select-form"
       triggerClass=concatenatedTriggerClass
-      dropdownClass="ember-power-select-complex--dropdown"
+      dropdownClass="ember-power-select-form--dropdown"
       extra=extra
       as |option term|}}
       {{yield option term}}

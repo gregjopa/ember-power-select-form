@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  selectedParams: [
+  selected: [
     {
       id: 'startDate',
       label: 'Start Date',
@@ -28,9 +28,9 @@ export default Ember.Controller.extend({
   ],
 
   actions: {
-    updateParams(params) {
-      console.log('updateParams', params);
-      this.set('selectedParams', params);
+    updateSelected(params) {
+      console.log('updateSelected', params);
+      this.set('selected', params);
     }
   }
 

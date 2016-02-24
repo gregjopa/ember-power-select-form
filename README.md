@@ -1,14 +1,14 @@
-# Ember-Power-Select-Complex
+# Ember-Power-Select-Form
 
-This addon provides the ability to embed a complex form into a single multi-select component. This design provides a unified way to list all of the selected values for different datasets in a single multi-select component. This same multi-select component UI design is used on the Twitter Analytics website on the Audiences report page.
+This addon provides the ability to embed a form into a multi-select component. This design provides a unified way to list all of the selected values for different datasets in a single multi-select component. This same multi-select component UI design is used on the Twitter Analytics website on the Audiences report page.
 
-![power select complex screenshot](https://github.com/gregjopa/ember-power-select-complex/raw/master/power_select_complex_screenshot.png)
+![power select form screenshot](https://github.com/gregjopa/ember-power-select-form/raw/master/power_select_form_screenshot.png)
 
 ## Addon Architecture
 
 * Overrides `triggerComponent` to be read-only (no filtering)
 * Only uses the `selected` option for managing items (`options` is not used at all)
-* Create your own `optionsComponent` for embedding a complex form
+* Create your own `optionsComponent` for embedding a form
 * Uses the `onchange` event to update the `selected` options after form submission
 * Only works for `power-select-multiple` not a single select
 

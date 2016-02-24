@@ -1,14 +1,14 @@
 <div class="container">
-  <h2>Ember Power Select Complex</h2>
+  <h2>Ember Power Select Form</h2>
 
-  {{#power-select-complex
-    selected=selectedParams
+  {{#power-select-form
+    selected=selected
     optionsComponent="select-options"
-    onchange=(action "updateParams")
+    onchange=(action "updateSelected")
     as |item|
   }}
     {{item.label}}: {{item.name}}
-  {{/power-select-complex}}
+  {{/power-select-form}}
 
   {{outlet}}
 </div>

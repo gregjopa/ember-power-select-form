@@ -1,5 +1,5 @@
 {
-  "name": "ember-power-select-complex",
+  "name": "ember-power-select-form",
   "dependencies": {
     "ember": "1.13.12",
     "ember-cli-shims": "0.0.6",
