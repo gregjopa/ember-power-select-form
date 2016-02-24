@@ -43,7 +43,9 @@ export default Ember.Component.extend({
 
   actions: {
 
-    transformParams() {
+    submitForm() {
+
+      // transform selected form values
 
       let startDate = moment(this.get('formFields.startDate.value')).format('MMM D, YYYY');
       let endDate = moment(this.get('formFields.endDate.value')).format('MMM D, YYYY');
@@ -59,12 +61,12 @@ export default Ember.Component.extend({
       let params = [formFields.startDate, formFields.endDate, formFields.regions];
 
       // send the updated params along by triggering the "onchange" ember-power-select event
-      this.sendAction('submit', {}, params);
+      this.get('select').actions.choose(params);
 
     },
 
     closeDropdown() {
-      this.get('targetObject').set('opened', false);
+      this.get('select').actions.close();
     }
 
   }
