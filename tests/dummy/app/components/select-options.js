@@ -16,7 +16,9 @@ export default Ember.Component.extend({
 
     // convert the "selected" array into a map where id is the key
     let selectedMap = this.get('selected').reduce(function (map, obj) {
-      map[obj.id] = obj;
+      if (obj.id) {
+        map[obj.id] = obj;
+      }
       return map;
     }, {});
 
@@ -43,7 +45,7 @@ export default Ember.Component.extend({
 
   actions: {
 
-    submitForm() {
+    submit(e) {
 
       // transform selected form values
 
@@ -62,6 +64,8 @@ export default Ember.Component.extend({
 
       // send the updated params along by triggering the "onchange" ember-power-select event
       this.get('select').actions.choose(params);
+
+      e.preventDefault();
 
     },
 
