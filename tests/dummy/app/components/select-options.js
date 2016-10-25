@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   formFields: Ember.computed('selected', function () {
 
     // convert the "selected" array into a map where id is the key
-    let selectedMap = this.get('selected').reduce(function (map, obj) {
+    let selectedMap = this.get('select.selected').reduce(function (map, obj) {
       if (obj.id) {
         map[obj.id] = obj;
       }
@@ -47,6 +47,8 @@ export default Ember.Component.extend({
 
     submit(e) {
 
+      e.preventDefault();
+
       // transform selected form values
 
       let startDate = moment(this.get('formFields.startDate.value')).format('MMM D, YYYY');
@@ -63,9 +65,8 @@ export default Ember.Component.extend({
       let params = [formFields.startDate, formFields.endDate, formFields.regions];
 
       // send the updated params along by triggering the "onchange" ember-power-select event
-      this.get('select').actions.choose(params);
-
-      e.preventDefault();
+      this.get('select').actions.select(params);
+      this.get('select').actions.close();
 
     },
 
