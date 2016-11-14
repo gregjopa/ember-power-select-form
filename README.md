@@ -1,6 +1,6 @@
 # Ember-Power-Select-Form
 
-This addon provides the ability to embed a form into a multi-select component. This design provides a unified way to list all of the selected values for different datasets in a single multi-select component. This same multi-select component UI design is used on the Twitter Analytics website on the Audiences report page.
+This addon provides the ability to embed a form into an ember-power-select component. This design provides a unified way to list all of the selected values for different datasets in a single multi-select component. This same multi-select component UI design is used on the Twitter Analytics website on the Audiences report page.
 
 ![power select form screenshot](https://github.com/gregjopa/ember-power-select-form/raw/master/power_select_form_screenshot.png)
 
@@ -18,18 +18,19 @@ Checkout the example ember app in the tests/dummy to see how to use this compone
 
 ## Installation
 
-* `git clone` this repository
+* `git clone <repository-url>` this repository
+* `cd ember-power-select-form`
 * `npm install`
 * `bower install`
 
 ## Running
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+* `ember serve`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
+* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
@@ -37,4 +38,4 @@ Checkout the example ember app in the tests/dummy to see how to use this compone
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
