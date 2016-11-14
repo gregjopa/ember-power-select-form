@@ -12,23 +12,39 @@ export default Ember.Component.extend({
     { name: 'Central', value: 3 }
   ]),
 
-  formFields: Ember.computed('selected', function () {
+  // form field values
+  formFields: Ember.computed(function () {
 
-    // convert the "selected" array into a map where id is the key
-    let selectedMap = this.get('select.selected').reduce(function (map, obj) {
-      if (obj.id) {
-        map[obj.id] = obj;
+    const selected = Ember.copy(this.get('select.selected'));
+
+    // if endDate is missing add an empty value for it (isDismissible)
+    if (selected.length === 2) {
+      selected.splice(1, 0, {});
+    }
+
+    return {
+      startDate: {
+        label: 'Start Date',
+        name: selected[0].name,
+        value: selected[0].value
+      },
+      endDate: {
+        label: 'End Date',
+        name: selected[1].name,
+        value: selected[1].value
+      },
+      regions: {
+        label: 'Regions',
+        name: selected[2].name,
+        values: selected[2].values
       }
-      return map;
-    }, {});
-
-    return Ember.copy(selectedMap);
+    };
 
   }),
 
   selectedRegions: Ember.computed('formFields', function () {
 
-    let regions = this.get('formFields.regions.values') || [];
+    const regions = this.get('formFields.regions.values') || [];
     return regions.map(region => this.get('allRegions').findBy('name', region.name));
 
   }),
@@ -50,19 +66,25 @@ export default Ember.Component.extend({
       e.preventDefault();
 
       // transform selected form values
+      const formFields = this.get('formFields');
+      const dateFormat = 'MMM D, YYYY';
 
-      let startDate = moment(this.get('formFields.startDate.value')).format('MMM D, YYYY');
-      let endDate = moment(this.get('formFields.endDate.value')).format('MMM D, YYYY');
+      const startDate = moment(formFields.startDate.value).format(dateFormat);
 
       this.set('formFields.startDate.name', startDate);
-      this.set('formFields.endDate.name', endDate);
-
       this.set('formFields.regions.values', this.get('selectedRegions'));
       this.set('formFields.regions.name', this.getLabel(this.get('selectedRegions')));
 
+      const params = [formFields.startDate, formFields.regions];
 
-      let formFields = this.get('formFields');
-      let params = [formFields.startDate, formFields.endDate, formFields.regions];
+
+      if (formFields.endDate.value) {
+        const endDate = moment(formFields.endDate.value).format(dateFormat);
+        this.set('formFields.endDate.name', endDate);
+        this.set('formFields.endDate.isDismissible', true);
+
+        params.splice(1, 0, formFields.endDate);
+      }
 
       // send the updated params along by triggering the "onchange" ember-power-select event
       this.get('select').actions.select(params);
