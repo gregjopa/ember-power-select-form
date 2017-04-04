@@ -1,6 +1,6 @@
 {
   "name": "ember-power-select-form",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Addon for embedding a form into a multi-select component",
   "license": "MIT",
   "author": {
